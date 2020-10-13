@@ -9,6 +9,12 @@ function NotepadItem(props) {
             <div className="panel-heading">
                 <div className='panel-content'>{props.note.textContent}</div>
             </div>
+            <button
+                className="btn btn-xs btn-danger margin-left-10"
+                onClick={() => props.handleDeleteNote(props.note._id)}
+            >
+                DELETE
+            </button>
         </div>
     );
 }

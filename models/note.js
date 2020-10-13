@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var noteSchema = new Schema({
-    user: { type: Schema.Types.ObjectId, ref: 'User' },
+    userID: { type: Schema.Types.ObjectId, ref: 'User' },
     textContent: { type: String, default: 'Write away..' },
     complete: { type: Boolean, default: false }
 }, {

@@ -8,7 +8,7 @@ function NotepadPage(props) {
             <h3>ReactNotes</h3>
             <div className="NotepadPage-grid">
                 {props.notes.map(note => (
-                    <NotepadItem note={note} key={note._id} />
+                    <NotepadItem note={note} key={note._id} handleDeleteNote={props.handleDeleteNote} />
                 ))}
             </div>
         </>

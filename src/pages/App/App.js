@@ -32,6 +32,14 @@ class App extends Component {
       () => this.props.history.push('/'));
   }
 
+  handleDeleteNote = async id => {
+    await notesService.deleteOne(id);
+    this.setState(state => ({
+      // Yay, filter returns a NEW array
+      notes: state.notes.filter(p => p._id !== id)
+    }), () => this.props.history.push('/'));
+  };
+
 
   handleLogout = () => {
     userService.logout();
@@ -55,8 +63,10 @@ class App extends Component {
           </nav>
         </header>
         <Switch>
-          <Route exact path='/' render={() => <NotepadPage notes={this.state.notes} />}
-          />
+          <Route exact path='/' render={() =>
+            <>
+              <NotepadPage notes={this.state.notes} handleDeleteNote={this.handleDeleteNote} />
+            </>} />
           <Route exact path='/add' render={() => <AddNotePage handleAddNote={this.handleAddNote} />}
           />
           <Route exact path='/signup' render={({ history }) =>
