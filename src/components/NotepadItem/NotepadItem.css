@@ -1,0 +1,19 @@
+.flex {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.note {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    width: 65vw
+  }
+
+  button {
+      height: 25px;     
+  }

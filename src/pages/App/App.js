@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import notesService from '../../services/notesService';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
@@ -63,10 +63,12 @@ class App extends Component {
           </nav>
         </header>
         <Switch>
-          <Route exact path='/' render={() =>
-            <>
-              <NotepadPage notes={this.state.notes} handleDeleteNote={this.handleDeleteNote} />
-            </>} />
+          <Route exact path='/' render={() => (
+            userService.getUser() ?
+              <NotepadPage notes={this.state.notes} user={this.state.user} handleDeleteNote={this.handleDeleteNote} />
+              :
+              <Redirect to='/login' />
+          )} />
           <Route exact path='/add' render={() => <AddNotePage handleAddNote={this.handleAddNote} />}
           />
           <Route exact path='/signup' render={({ history }) =>

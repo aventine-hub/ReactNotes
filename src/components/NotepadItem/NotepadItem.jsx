@@ -5,16 +5,16 @@ import './NotepadItem.css';
 
 function NotepadItem(props) {
     return (
-        <div className='panel panel-default'>
-            <div className="panel-heading">
-                <div className='panel-content'>{props.note.textContent}</div>
+        <div className="flex">
+            <div className="note">
+                {props.user._id === props.note.userID && (<p>{props.note.textContent}</p>)}
+
+
+                {props.user._id === props.note.userID && (<button
+                    onClick={() => props.handleDeleteNote(props.note._id)}>
+                    X
+                </button>)}
             </div>
-            <button
-                className="btn btn-xs btn-danger margin-left-10"
-                onClick={() => props.handleDeleteNote(props.note._id)}
-            >
-                DELETE
-            </button>
         </div>
     );
 }

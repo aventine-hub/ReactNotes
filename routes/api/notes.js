@@ -8,5 +8,10 @@ router.get('/', notesCtrl.index);
 router.post('/', notesCtrl.create);
 router.delete('/:id', notesCtrl.delete);
 
+/*----- Helper Functions -----*/
+function checkAuth(req, res, next) {
+    if (req.user) return next();
+    return res.status(401).json({ msg: 'Not Authorized' });
+}
 
 module.exports = router;

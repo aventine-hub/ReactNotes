@@ -28,8 +28,8 @@ class AddNotePage extends Component {
                 <h1>Add Note</h1>
                 <form ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
                     <div className="form-group">
-                        <label>Note</label>
-                        <input
+
+                        <textarea
                             className="form-control"
                             name="textContent"
                             value={this.state.formData.textContent}
