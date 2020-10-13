@@ -8,6 +8,7 @@ import userService from '../../utils/userService';
 import NavBar from '../../components/NavBar/NavBar';
 import NotepadPage from '../NotepadPage/NotepadPage'
 import AddNotePage from '../../components/AddNotePage/AddNotePage';
+import EditNotePage from '../../components/EditNotePage/EditNotePage';
 
 class App extends Component {
   constructor() {
@@ -28,16 +29,25 @@ class App extends Component {
     this.setState(state => ({
       notes: [...state.notes, newNote]
     }),
-      // Using cb to wait for state to update before rerouting
       () => this.props.history.push('/'));
   }
 
   handleDeleteNote = async id => {
     await notesService.deleteOne(id);
     this.setState(state => ({
-      // Yay, filter returns a NEW array
       notes: state.notes.filter(p => p._id !== id)
     }), () => this.props.history.push('/'));
+  };
+
+  handleUpdateNote = async updatedNoteData => {
+    const updatedNote = await notesService.update(updatedNoteData);
+    const newNotesArray = this.state.notes.map(p =>
+      p._id === updatedNote._id ? updatedNote : p
+    );
+    this.setState(
+      { notes: newNotesArray },
+      () => this.props.history.push('/')
+    );
   };
 
 
@@ -70,6 +80,15 @@ class App extends Component {
               <Redirect to='/login' />
           )} />
           <Route exact path='/add' render={() => <AddNotePage handleAddNote={this.handleAddNote} />}
+          />
+          <Route
+            exact
+            path='/edit'
+            render={({ location }) => (<EditNotePage
+              handleUpdateNote={this.handleUpdateNote}
+              location={location}
+            />
+            )}
           />
           <Route exact path='/signup' render={({ history }) =>
             <SignupPage

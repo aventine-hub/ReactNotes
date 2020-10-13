@@ -7,6 +7,7 @@ export default {
     getAll,
     create,
     deleteOne,
+    update
 }
 
 function getAll() {
@@ -24,5 +25,13 @@ function create(note) {
 function deleteOne(id) {
     return fetch(`${BASE_URL}/${id}`, {
         method: 'DELETE'
+    }).then(res => res.json());
+}
+
+function update(note) {
+    return fetch(`${BASE_URL}/${note._id}`, {
+        method: 'PUT',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(note)
     }).then(res => res.json());
 }

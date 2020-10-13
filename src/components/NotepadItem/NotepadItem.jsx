@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './NotepadItem.css';
 
 
@@ -9,11 +9,16 @@ function NotepadItem(props) {
             <div className="note">
                 {props.user._id === props.note.userID && (<p>{props.note.textContent}</p>)}
 
-
                 {props.user._id === props.note.userID && (<button
                     onClick={() => props.handleDeleteNote(props.note._id)}>
                     X
-                </button>)}
+                </button>
+                )}
+
+                {props.user._id === props.note.userID && (<Link
+
+                    to={{ pathname: '/edit', state: { note: props.note } }}>EDIT</Link>
+                )}
             </div>
         </div>
     );

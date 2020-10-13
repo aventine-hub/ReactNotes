@@ -7,6 +7,7 @@ router.use(require('../../config/auth'));
 router.get('/', notesCtrl.index);
 router.post('/', notesCtrl.create);
 router.delete('/:id', notesCtrl.delete);
+router.put('/:id', notesCtrl.update);
 
 /*----- Helper Functions -----*/
 function checkAuth(req, res, next) {
