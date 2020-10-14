@@ -5,7 +5,9 @@ import './NotepadItem.css';
 
 function NotepadItem(props) {
     return (
+
         <div className="flex">
+            <br></br>
             {props.user._id === props.note.userID && (<div className="note">
                 {props.user._id === props.note.userID && (<p>{props.note.textContent}</p>)}
 
