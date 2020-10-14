@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect, Link } from 'react-router-dom';
 import notesService from '../../services/notesService';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
@@ -64,7 +64,7 @@ class App extends Component {
     return (
       <>
         <header className="App-header">
-          ReactNotes
+          <Link to='/'>ReactNotes</Link>
           <nav>
             <NavBar
               user={this.state.user}
