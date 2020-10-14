@@ -30,8 +30,9 @@ class AddNotePage extends Component {
                     <div className="form-group">
 
                         <textarea
-                            className="form-control"
+                            className="form-control rounded-0"
                             name="textContent"
+                            rows="20"
                             value={this.state.formData.textContent}
                             onChange={this.handleChange}
                             required

@@ -25,7 +25,7 @@ class EditNotePage extends Component {
 
     render() {
         return (
-            <>
+            <div className="flex">
                 <h1>Edit Note</h1>
                 <form ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
                     <div className="form-group">
@@ -33,6 +33,7 @@ class EditNotePage extends Component {
                         <textarea
                             className="form-control"
                             name="textContent"
+                            rows="20"
                             value={this.state.formData.textContent}
                             onChange={this.handleChange}
                             required
@@ -56,7 +57,7 @@ class EditNotePage extends Component {
          </button>&nbsp;&nbsp;
          <Link to='/'>CANCEL</Link>
                 </form>
-            </>
+            </div>
         );
     }
 }
