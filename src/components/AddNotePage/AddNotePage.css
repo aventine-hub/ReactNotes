@@ -1,4 +1,10 @@
 textarea {
-    text-decoration: none;
-    width: 80vw;
+    width: 120vw;
+}
+
+.flex {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
 }
