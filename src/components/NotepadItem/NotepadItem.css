@@ -7,13 +7,17 @@
 
 .note {
     display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
+    flex-flow: row nowrap;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 50px;
-    width: 65vw
+    width: 65vw;
+    border-radius: 1vh;
+    border: 2px solid black;
+    padding: 10px;
   }
 
   button {
-      height: 25px;     
+      height: 25px;
+      margin: 10px;     
   }

@@ -38,17 +38,15 @@ class EditNotePage extends Component {
                             required
                         />
                     </div>
-                    <div className="form-group">
-                        <label>Done?</label>
-                        <input
-                            type="checkbox"
-                            className="form-control"
-                            name="complete"
-                            value={this.state.formData.complete}
-                            onChange={this.handleChange}
-                            required
-                        />
-                    </div>
+
+                    <label>Done?</label>
+                    <input
+                        type="checkbox"
+                        name="complete"
+                        value={this.state.formData.complete}
+                        onChange={this.handleChange}
+                    />
+                    <br></br>
                     <button
                         type="submit"
                         className="btn btn-xs"

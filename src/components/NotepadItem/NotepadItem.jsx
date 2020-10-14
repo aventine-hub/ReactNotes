@@ -6,7 +6,7 @@ import './NotepadItem.css';
 function NotepadItem(props) {
     return (
         <div className="flex">
-            <div className="note">
+            {props.user._id === props.note.userID && (<div className="note">
                 {props.user._id === props.note.userID && (<p>{props.note.textContent}</p>)}
 
                 {props.user._id === props.note.userID && (<button
@@ -14,15 +14,15 @@ function NotepadItem(props) {
                     X
                 </button>
                 )}
-
+                <br></br>
                 {props.user._id === props.note.userID && (<Link
 
                     to={{ pathname: '/edit', state: { note: props.note } }}>EDIT</Link>
                 )}
-            </div>
+            </div>)}
         </div>
     );
 }
 
 
-export default NotepadItem;
+export default NotepadItem;  
