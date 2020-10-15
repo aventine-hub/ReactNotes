@@ -1,5 +1,3 @@
-## ReactNotes
-
 <img src="https://i.imgur.com/NWLO3Mm.png"/>
 
 ---
