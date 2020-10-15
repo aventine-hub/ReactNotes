@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, Switch, Redirect, Link } from 'react-router-dom';
+// import Clock from 'react-clock'
 import notesService from '../../services/notesService';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
@@ -59,6 +60,7 @@ class App extends Component {
   handleSignupOrLogin = () => {
     this.setState({ user: userService.getUser() });
   }
+
 
   render() {
     return (
